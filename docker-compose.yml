@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  django:
+    image: django_img
+    build: $PWD/.
+    #command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    environment:
+      #SECRET_KEY: 'Kou*J@66,3-k7JMER@s/gx(Yy!g8M%wyqDcKu8'
+      DJANGO_DEBUG: 'True'
