@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+###Important TODO:
+#hardening sec: https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-CSRF_COOKIE_SECURE
+
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9=!!4+kmn28z7wx$zyt3$20+ihvjlq4z&p0nndy6u=moo!2v=&'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'jaskdfjkasdjfuiucajncjkasdjfnakljsfnakjn')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', False) )
 
 ALLOWED_HOSTS = []
 
