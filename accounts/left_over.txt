@@ -1,0 +1,3 @@
+delete the home view
+delete the url for home
+delete the template for home

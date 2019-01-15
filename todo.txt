@@ -1,0 +1,7 @@
+- add user to exam upload model
+- automatic logout system
+- alles zwischen Header und Footer vertikal zentrieren
+- change the button design of the authorisation forms
+- Schwerpunkt optional?
+
+http://geniuscarrier.com/how-to-style-a-html-file-upload-button-in-pure-css/
