@@ -6,8 +6,8 @@
 ############################################################
 
 # Set the base image to use to Ubuntu
-FROM ubuntu:16.04 
-#switched from 14.04
+FROM python:3
+#switched from ubuntu:14.04
 
 # Set the file maintainer (your name - the file's author)
 MAINTAINER Lucas Brunner
@@ -21,13 +21,13 @@ ENV DOCKYARD_SRVHOME=/srv
 ENV DOCKYARD_SRVPROJ=$DOCKYARD_SRVHOME/$DOCKYARD_SRC
 
 # Update the default application repository sources list
-RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y python python-pip
-RUN apt-get install -y python-dev
-RUN apt-get install -y libmysqlclient-dev
-RUN apt-get install -y git
-RUN apt-get install -y vim
-RUN apt-get install -y mysql-server
+#RUN apt-get update && apt-get -y upgrade
+#RUN apt-get install -y python python-pip
+#RUN apt-get install -y python-dev
+#RUN apt-get install -y libmysqlclient-dev
+#RUN apt-get install -y git
+#RUN apt-get install -y vim
+#RUN apt-get install -y mysql-server
 RUN apt-get install -y nginx
 
 # Create application subdirectories

@@ -2,9 +2,11 @@ version: "3.5"
 
 services:
   django:
-    image: django_img
-    build: $PWD/.
+    image: lucas/django
+    #build: $PWD/.
     #command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - $PWD/code:/code
     ports:
       - "8000:80"
     environment:
