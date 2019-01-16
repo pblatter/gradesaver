@@ -6,9 +6,7 @@ services:
     build: $PWD/.
     #command: python3 manage.py runserver 0.0.0.0:8000
     ports:
-      - "80:80"
-    depends_on:
-      - postgres
+      - "8000:80"
     environment:
       #SECRET_KEY: 'Kou*J@66,3-k7JMER@s/gx(Yy!g8M%wyqDcKu8'
       DJANGO_DEBUG: 'True'
