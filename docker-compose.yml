@@ -2,13 +2,14 @@ version: "3.5"
 
 services:
   django:
-    image: lucas/django
+    image: alang/django
     #build: $PWD/.
     #command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - $PWD/code:/code
+      - $PWD/code:/usr/django/app
     ports:
-      - "8000:80"
+      - "80:8000"
     environment:
+      DJANGO_APP: 'webapp'
       #SECRET_KEY: 'Kou*J@66,3-k7JMER@s/gx(Yy!g8M%wyqDcKu8'
       DJANGO_DEBUG: 'True'
