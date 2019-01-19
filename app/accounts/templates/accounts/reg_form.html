@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+        <meta charset="utf-8">
+        <title> Register </title>
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>
+        Register
+    </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn waves-effect waves-light blue" type="submit" name="action">Register</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <br><br><br>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="first_name">Vorname </label>
+        <input style="margin-bottom: 1em;" id="first_name" class="form-control" type="text" maxlength="25" name="first_name"
+            value="{{ user.first_name }}"><br>
+        <label for="last_name">Nachname </label>
+        <input style=" margin-bottom: 1em;" id="last_name" class="form-control" type="text" maxlength="25" name="last_name"
+            value="{{ user.last_name }}"><br>
+        <label for="email">E-Mail </label>
+        <input style="margin-bottom: 1em;" id="email" class="form-control" type="email" maxlength="50" required=True
+            unique=True name="email" value="{{ user.email }}"><br>
+
+        <button class="btn btn-success btn-sm blue" type="submit">Bestätigen</button>
+
+        {% if form.errors %}
+        <p style="margin-left: 5em;" class=" label label-danger">
+            Das ist keine gültige E-Mail-Adresse. Bitte versuche Sie es erneut.
+        </p>
+        {% endif %}
+
+
+
+
+        <!--{% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn waves-effect waves-light blue" type="submit" name="action">Speichern</button>
+        -->
+    </form>
+    <br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css" />
+    <link rel='stylesheet' href="{% static 'accounts/css/materialize.css' %}" type='text/css' />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'accounts/js/materialize.js' %}"></script>
+    <script src="{% static 'accounts/js/init.js' %}"></script>
+    <!--<link rel="stylesheet" href="{% static 'accounts/js/materialize.js' %}"/>-->
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% block head %}
+    <meta charset="utf-8">
+    <title> BASE </title>
+
+    {% endblock %}
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+
+            {% if user.is_authenticated %}
+
+            <div class="nav-wrapper blue" >
+                <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
+                <ul class="right hide-on-med-and-down">
+                    <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                    <li> <a href="{% url 'accounts:view_profile' %}">Profil</a></li>
+                    <li> <a href="{% url 'accounts:edit_profile' %}">Profil bearbeiten</a></li>
+                    <li> <a href="{% url 'accounts:change_password' %}">Passwort ändern</a></li>
+                    <li> <a href="{% url 'accounts:logout' %}">Logout</a></li>
+                    <!-- Dropdown Trigger -->
+                    <!-- 
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+                    -->
+
+                    <!-- Dropdown Structure -->
+                    <!-- 
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">one</a></li>
+                        <li><a href="#!">two</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">three</a></li>
+                    </ul>
+                -->
+                </ul>
+            </div>
+
+            {% else %}
+            <div class="nav-wrapper blue">
+                <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
+                <ul class="right hide-on-med-and-down">
+                    <!--removed the url accounts:reset_password -->
+                    <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                    <li> <a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:register' %}">Registrieren</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </nav>
+    </div>
+
+    <main>
+        {% block body %}
+        <h1> BASE </h1>
+
+        {% endblock%}
+    </main>
+
+
+    <footer class="page-footer blue">
+        <div class="container">
+            <div class="row">
+                <div class="col l10">
+                    <h5 class="white-text">Contact</h5>
+                    <p class="grey-text text-lighten-4">ph_blatter@hotmail.com</p>
+                    <p class="grey-text text-lighten-4">+41 79 529 32 91</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018
+                <a class="grey-text text-lighten-4 right">Made with <i class="material-icons">favorite</i> by pblatter</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

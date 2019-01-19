@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+    <div class="card test_class">
+        <div class="card-content center-align">
+            <a href="{% url 'fileupload:find' %}">Suche nach Prüfungen!</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card test_class">
+        <div class="card-content center-align">
+            <a href="{% url 'fileupload:exam_upload' %}">Lade Prüfungen hoch!</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
