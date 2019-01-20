@@ -1,22 +1,23 @@
 version: "3.5"
 
 services:
-  django:
-    image: brunnelu/django:0.0.5
-    build: $PWD/.
-    #command: pip install django-multiselectfield
+  app:
+    image: brunnelu/django:0.0.7
+    build: .
+    restart: always
     volumes:
       - $PWD/static:/var/www/static
-      - $PWD/code:/usr/django/app
-      - $PWD/gunicorn.conf:/etc/gunicorn/gunicorn.conf
+      - $PWD/app:/app
     ports:
       - "8000:8000"
     environment:
-      DJANGO_APP: 'webapp'
-      DJANGO_MANAGEMENT_ON_START: 'migrate --noinput;collectstatic --noinput'
-      #SECRET_KEY: 'Kou*J@66,3-k7JMER@s/gx(Yy!g8M%wyqDcKu8'
-      DJANGO_DEBUG: 'True'
-    
+      #DJANGO_APP: 'webapp'
+      #DJANGO_MANAGEMENT_ON_START: 'migrate --noinput;collectstatic --noinput'
+      SECRET_KEY: 'Kou*J@66,3-k7JMER@s/gx(Yy!g8M%wyqDcKu8ER@s/gx(Yy!g8M%wyqDcKER@s/gx(Yy!g8M%wyqDcK'
+      #DJANGO_DEBUG: 'True'
+    command:
+      "bash start.sh"
+      
   nginx:
     image: nginx:latest
     volumes:
