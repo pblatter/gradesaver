@@ -21,8 +21,8 @@
 </head>
 
 <body>
-    <div class="navbar-fixed">
-        <nav>
+    <!--<div class="navbar-fixed">-->
+        <!--<nav>
 
             {% if user.is_authenticated %}
 
@@ -34,28 +34,14 @@
                     <li> <a href="{% url 'accounts:edit_profile' %}">Profil bearbeiten</a></li>
                     <li> <a href="{% url 'accounts:change_password' %}">Passwort ändern</a></li>
                     <li> <a href="{% url 'accounts:logout' %}">Logout</a></li>
-                    <!-- Dropdown Trigger -->
-                    <!-- 
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-                    -->
-
-                    <!-- Dropdown Structure -->
-                    <!-- 
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">one</a></li>
-                        <li><a href="#!">two</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#!">three</a></li>
-                    </ul>
-                -->
                 </ul>
             </div>
 
             {% else %}
             <div class="nav-wrapper blue">
-                <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
-                <ul class="right hide-on-med-and-down">
-                    <!--removed the url accounts:reset_password -->
+               <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
+                <ul class="right hide-on-med-and-down">-->
+                    <!--removed the url accounts:reset_password 
                     <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
                     <li> <a href="{% url 'accounts:login' %}">Login</a></li>
                     <li><a href="{% url 'accounts:register' %}">Registrieren</a></li>
@@ -63,7 +49,46 @@
             </div>
             {% endif %}
         </nav>
-    </div>
+    -->
+    <nav class="nav">
+        {% if user.is_authenticated %}
+        <div class="nav-wrapper blue">
+            <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                <li> <a href="{% url 'accounts:view_profile' %}">Profil</a></li>
+                <li> <a href="{% url 'accounts:edit_profile' %}">Profil bearbeiten</a></li>
+                <li> <a href="{% url 'accounts:change_password' %}">Passwort ändern</a></li>
+                <li> <a href="{% url 'accounts:logout' %}">Logout</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                <li> <a href="{% url 'accounts:view_profile' %}">Profil</a></li>
+                <li> <a href="{% url 'accounts:edit_profile' %}">Profil bearbeiten</a></li>
+                <li> <a href="{% url 'accounts:change_password' %}">Passwort ändern</a></li>
+                <li> <a href="{% url 'accounts:logout' %}">Logout</a></li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="nav-wrapper blue">
+                <a href="{% url 'fileupload:home' %}" class="brand-logo"> <i class="material-icons">school</i>Prüfungssammlung</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                    <li> <a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:register' %}">Registrieren</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li> <a href="{% url 'fileupload:home' %}">Home</a></li>
+                    <li> <a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:register' %}">Registrieren</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    </nav>
+        
+    <!--</div>-->
 
     <main>
         {% block body %}
